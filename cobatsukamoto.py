@@ -51,7 +51,6 @@ dataset = [
     [33, 76, 6.3, 61.62]
 ]
 
-
 # Melakukan perhitungan fuzzy dan mencetak hasil diagnosis untuk setiap data
 for data in dataset:
     suhu_input = data[0]
@@ -184,6 +183,8 @@ diagnosis_agg = np.fmax(diagnosis_output1,
                                                                                                                                                                                                                 np.fmax(diagnosis_output26, diagnosis_output27)))))))))))))))))))))))))
                                                                                                                                                                                                         
                                                                                                                                                                                                                         
+
+
 # Defuzzifikasi menggunakan metode Tsukamoto
 diagnosis_result = fuzz.defuzz(diagnosis, diagnosis_agg, 'centroid')
 diagnosis_result = round(diagnosis_result, 2)

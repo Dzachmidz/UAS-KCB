@@ -117,7 +117,7 @@ for data in dataset:
     print("Hasil Diagnosis:", hasil_diagnosis)
 
 # Menghitung akurasi
-error_threshold = 10  # Ambil batas toleransi kesalahan
+error_threshold = 20  # Ambil batas toleransi kesalahan
 accuracy = max(0, (1 - (total_error / (total_data * error_threshold))) * 100)
 
 print("Akurasi:", accuracy, "%")
