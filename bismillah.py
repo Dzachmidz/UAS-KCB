@@ -199,5 +199,5 @@ for data in dataset:
 
 # Menampilkan hasil diagnosis
 for i in range(n_data):
-    print("Data", i+1, ":", data)
+    print("Data", i+1, ":", data+1)
     print("Hasil Diagnosis Menggunakan Metode Tsukamoto =", hasil_diagnosis[i])

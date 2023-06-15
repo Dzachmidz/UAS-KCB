@@ -94,7 +94,9 @@ dataset = [
     [33, 76, 6.3, 61.62]
 ]
 
-total_data = len(dataset)
+# Menghitung jumlah data pada dataset
+n_data = len(dataset)
+
 total_error = 0
 
 for data in dataset:
@@ -117,8 +119,8 @@ for data in dataset:
     print("Hasil Diagnosis Menggunakan Metode Mamdani:", hasil_diagnosis)
 
 # Menghitung akurasi
-error_threshold = 20  # Ambil batas toleransi kesalahan
-accuracy = max(0, (1 - (total_error / (total_data * error_threshold))) * 100)
+error_threshold = 10  # Ambil batas toleransi kesalahan
+accuracy = max(0, (1 - (total_error / (n_data * error_threshold))) * 100)
 
 print("Akurasi:", accuracy, "%")
 

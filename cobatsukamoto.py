@@ -18,9 +18,9 @@ kelembaban_normal = fuzz.trimf(kelembaban, [0, 50, 100])
 kelembaban_tinggi = fuzz.trimf(kelembaban, [50, 100, 100])
 
 # Pembentukan fungsi keanggotaan pH tanah
-ph_asam = fuzz.trimf(ph_tanah, [4, 4, 6])
-ph_netral = fuzz.trimf(ph_tanah, [4, 6, 8])
-ph_basa = fuzz.trimf(ph_tanah, [6, 8, 8])
+ph_asam = fuzz.trimf(ph_tanah, [4, 4, 5.5])
+ph_netral = fuzz.trimf(ph_tanah, [4.5, 5.5, 6.5])
+ph_basa = fuzz.trimf(ph_tanah, [5.5, 6.5, 8])
 
 # Pembentukan fungsi keanggotaan tingkat penyakit
 diagnosis_rendah = fuzz.trimf(diagnosis, [0, 0, 50])
@@ -199,5 +199,12 @@ for data in dataset:
 
 # Menampilkan hasil diagnosis
 for i in range(n_data):
-    print("Data", i+1, ":", data)
+    print("Data", i+1, ":", dataset[i])
     print("Hasil Diagnosis Menggunakan Metode Tsukamoto =", hasil_diagnosis[i])
+
+# Menghitung akurasi
+target_diagnosis = [55.73, 61.62, 50.00, 58.01, 52.99, 66.97, 55.73, 55.04, 50.00, 61.62, 50.00, 58.87, 55.73, 58.87, 55.73, 61.62, 50.00, 61.62, 50.00, 61.62]
+akurasi = 100 - (np.mean(np.abs(np.subtract(target_diagnosis, hasil_diagnosis))) / np.mean(target_diagnosis) * 100)
+
+# Menampilkan akurasi
+print("Akurasi: {}%".format(akurasi))
