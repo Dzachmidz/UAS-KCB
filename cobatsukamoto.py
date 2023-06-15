@@ -14,7 +14,7 @@ suhu_tinggi = fuzz.trimf(suhu, [30, 40, 40])
 
 # Pembentukan fungsi keanggotaan kelembaban
 kelembaban_rendah = fuzz.trimf(kelembaban, [0, 0, 50])
-kelembaban_normal = fuzz.trimf(kelembaban, [0, 50, 100])
+kelembaban_normal = fuzz.trimf(kelembaban, [0, 50, 50])
 kelembaban_tinggi = fuzz.trimf(kelembaban, [50, 100, 100])
 
 # Pembentukan fungsi keanggotaan pH tanah
@@ -24,33 +24,31 @@ ph_basa = fuzz.trimf(ph_tanah, [6, 8, 8])
 
 # Pembentukan fungsi keanggotaan tingkat penyakit
 diagnosis_rendah = fuzz.trimf(diagnosis, [0, 0, 50])
-diagnosis_sedang = fuzz.trimf(diagnosis, [0, 50, 50])
+diagnosis_sedang = fuzz.trimf(diagnosis, [0, 50, 100])
 diagnosis_tinggi = fuzz.trimf(diagnosis, [50, 100, 100])
 
 # Definisi dataset
 dataset = [
-    [28, 75, 6.5, 55.73],
-    [32, 85, 7.2, 61.62],
-    [26, 65, 5.8, 50.00],
-    [30, 80, 6.9, 58.01],
-    [27, 70, 6.2, 52.99],
-    [31, 90, 7.5, 66.97],
-    [29, 75, 6.7, 55.73],
-    [33, 80, 7.0, 55.04],
-    [25, 60, 6.0, 50.00],
-    [30, 85, 7.3, 61.62],
-    [25, 70, 6.5, 50.00],
-    [30, 60, 7.2, 58.87],
-    [28, 75, 6.8, 55.73],
-    [32, 80, 6.2, 58.87],
-    [26, 65, 7.0, 55.73],
-    [29, 85, 6.5, 61.62],
-    [27, 72, 6.9, 50.00],
-    [31, 78, 6.4, 61.62],
-    [24, 68, 7.1, 50.00],
-    [33, 76, 6.3, 61.62]
+    [28, 55, 6.5],
+    [30, 65, 7],
+    [26, 70, 6.8],
+    [32, 85, 6.2],
+    [27, 80, 7.5],
+    [29, 75, 6.7],
+    [31, 90, 6.9],
+    [25, 60, 6],
+    [30, 80, 7.3],
+    [27, 70, 6.5],
+    [31, 75, 7.2],
+    [28, 75, 6.8],
+    [32, 80, 6.2],
+    [26, 65, 7],
+    [29, 85, 6.5],
+    [27, 72, 6.9],
+    [31, 78, 6.4],
+    [24, 68, 7.1],
+    [33, 76, 6.3]
 ]
-
 
 # Melakukan perhitungan fuzzy dan mencetak hasil diagnosis untuk setiap data
 for data in dataset:
@@ -184,6 +182,7 @@ diagnosis_agg = np.fmax(diagnosis_output1,
                                                                                                                                                                                                                 np.fmax(diagnosis_output26, diagnosis_output27)))))))))))))))))))))))))
                                                                                                                                                                                                         
                                                                                                                                                                                                                         
+
 # Defuzzifikasi menggunakan metode Tsukamoto
 diagnosis_result = fuzz.defuzz(diagnosis, diagnosis_agg, 'centroid')
 diagnosis_result = round(diagnosis_result, 2)
