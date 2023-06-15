@@ -52,7 +52,7 @@ dataset = [
 ]
 
 # Menghitung jumlah data pada dataset
-n_data = len(dataset)
+n_data = len(dataset) kjbjgufyttrxrtxjh
 
 # Inisialisasi variabel hasil
 hasil_diagnosis = []
