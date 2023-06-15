@@ -159,7 +159,6 @@ diagnosis_agg = np.fmax(diagnosis_output1,
                                                                                                                                                                                                         
                                                                                                                                                                                                                         
 
-
 # Defuzzifikasi menggunakan metode Tsukamoto
 diagnosis = fuzz.defuzz(diagnosis, diagnosis_agg, 'centroid')
 diagnosis = round(diagnosis, 2)

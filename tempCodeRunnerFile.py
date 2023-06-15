@@ -1,0 +1,1 @@
+diagnosis_result = fuzz.defuzz(diagnosis, aggregated, 'centroid')

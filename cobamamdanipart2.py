@@ -70,6 +70,7 @@ rule27 = ctrl.Rule(suhu['tinggi'] & ph_tanah['basah'] & kelembaban['tinggi'], di
 diagnosis_ctrl = ctrl.ControlSystem([rule1, rule2, rule3, rule4, rule5, rule6, rule7, rule8, rule9, rule10, rule11, rule12, rule13, rule14, rule15, rule16, rule17, rule18, rule19, rule20, rule21, rule22, rule23, rule24, rule25, rule26, rule27])
 diagnosa = ctrl.ControlSystemSimulation(diagnosis_ctrl)
 
+# Dataset baru
 dataset = [
     [28, 75, 6.5, 55.73],
     [32, 85, 7.2, 61.62],
@@ -93,6 +94,8 @@ dataset = [
     [33, 76, 6.3, 61.62]
 ]
 
+total_data = len(dataset)
+total_error = 0
 
 for data in dataset:
     suhu_input = data[0]
@@ -105,8 +108,21 @@ for data in dataset:
     diagnosa.compute()
 
     hasil_diagnosis = diagnosa.output['diagnosis']
+
+    # Menambahkan perhitungan kesalahan
+    error = abs(hasil_diagnosis - data[3])
+    total_error += error
+
     print("Data:", data)
     print("Hasil Diagnosis:", hasil_diagnosis)
+
+# Menghitung akurasi
+error_threshold = 10  # Ambil batas toleransi kesalahan
+accuracy = max(0, (1 - (total_error / (total_data * error_threshold))) * 100)
+
+print("Akurasi:", accuracy, "%")
+
+
 
 # Menampilkan kurva keanggotaan untuk variabel diagnosis
 diagnosis.view(sim=diagnosa)
