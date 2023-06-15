@@ -104,6 +104,7 @@ for data in dataset:
     diagnosa.compute()
 
     hasil_diagnosis = diagnosa.output['diagnosis']
+    print("Data:", data)
     print("Hasil Diagnosis:", hasil_diagnosis)
 
 # Menampilkan kurva keanggotaan untuk variabel diagnosis
