@@ -114,15 +114,13 @@ for data in dataset:
     total_error += error
 
     print("Data:", data)
-    print("Hasil Diagnosis:", hasil_diagnosis)
+    print("Hasil Diagnosis Menggunakan Metode Mamdani:", hasil_diagnosis)
 
 # Menghitung akurasi
-error_threshold = 10  # Ambil batas toleransi kesalahan
+error_threshold = 20  # Ambil batas toleransi kesalahan
 accuracy = max(0, (1 - (total_error / (total_data * error_threshold))) * 100)
 
 print("Akurasi:", accuracy, "%")
-
-
 
 # Menampilkan kurva keanggotaan untuk variabel diagnosis
 diagnosis.view(sim=diagnosa)
