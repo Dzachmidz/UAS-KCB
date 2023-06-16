@@ -128,4 +128,4 @@ print("Akurasi:", accuracy, "%")
 diagnosis.view(sim=diagnosa)
 
 # Menunggu tampilan plot ditutup sebelum keluar
-# plt.show()
+plt.show()
